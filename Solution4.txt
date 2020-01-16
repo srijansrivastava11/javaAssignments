@@ -1,0 +1,61 @@
+Design a Job Searching platform
+
+User can
+1) Login App
+2) Update profile
+3) Search the jobs
+4) Apply
+5) Exit App
+
+Class: User
+Data:username,password
+loginApp(){
+	App.login(username,password);
+}
+Boolean profile=Profile.updateProfile();
+
+if(profile==true){
+	SearchJobsAccordingtoProfile();
+	Applyforjobs();
+}
+else{
+	listAlljobs();
+}
+exit(){
+App.exit();
+}
+----------------------------------------------------------
+--------------------------------------
+Class: App
+Data: status
+Behaviour:
+login(userName){
+	List<String> nameList;
+	foreach(String name in nameList){
+		if(userName== name)
+	status=true;
+	}
+status=false;
+}
+SearchJobsAccordingtoProfile(userData){
+	List jobs;
+}
+Exit(){
+ return False;
+}
+--------------------------------------------------------------
+---------------------------------------------
+Class: Profile
+Data:name,photo,qualification,speciality,CV
+loginApp(){
+	App.login(username,password);
+}
+updateProfile(){
+ update(name);
+ update(photo);
+ update(qulaification);
+ update(specaility);
+ update(cv);
+return true;	
+}
+return false;

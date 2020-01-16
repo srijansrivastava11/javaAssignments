@@ -1,0 +1,92 @@
+Buy A Pizza from Dominos
+
+User can
+1) Open url Dominos or login App
+2) Search Pizza
+3) Select any particular Pizza
+4) Click on buy now or Add to cart
+5) Cancel
+
+Class: User
+Data:Pizza,order,Address,phone
+Behaviour:
+if(login.App()){
+	App.login(Dominos);
+}
+else{
+	Open.urlonBrowser(Dominos);
+}
+SearchPizza(){
+add.toppings();
+ if(Pizza.Available() && Buynow){
+	Buynow.Pizza();
+	Select.paymentMethod();
+	if(paymentmethod==COD){
+		SendAutheticationMessage(phone);
+		if (Authorised)
+			Select.address(this.address)
+			Order.placed();
+		else
+			Order.Cancel()		
+	}
+	else{
+		if(CreditCard.cardAvailable()){
+		  SendAutheticationMessage(phone);
+		  if (Authorised)
+			Select.address(this.address)
+			Orderplaced();
+		   else
+			Order.Cancel()	
+		}
+		else{
+		 InsertCarddetails();
+		 SendAutheticationMessage(phone);
+		  if (Authorised)
+			Select.address(this.address)
+			Order.placed();
+		   else
+			Order.Cancel()
+		}
+	}
+	
+ }
+ else{
+	AddtoCart.Pizza();
+ }
+}
+else{
+ExitApporURL();
+}
+
+------------------------------------------------------------
+-----------------------------------------------
+
+Class: Deliveryperson
+Data:name,phone,mail,address,sign
+Behaviour:
+sendNotification('arrival',mail,phone);
+orderDelivery(address){
+	if (validAddress){
+		ItemDelivered();
+		VerificationfromReciever(Sign)
+		sendNotification('delivered',mail,phone);
+	}
+	else{
+	       OrderReturned();
+	       sendNotification('failedorder',mail,phone);
+		
+	}
+}
+
+
+sendNotification(msg,mail,phone){
+	if(msg=='arrival')
+		System.out.Println("Order is going to arrive at xyz date");
+	}
+	if(msg=='delivered'){
+		System.out.Println("Order Delivered");
+	}
+	if(msg=='failed'){
+		System.out.Println("Failed to deliever order");
+	}
+}
