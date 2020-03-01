@@ -2,7 +2,7 @@ package Assignment6;
 
 import java.util.*;
 
-//this class is to compare movie objects based on average ratings and if movie rating is same, it will sort lexicographically 
+//this class is to compare movie objects based on average ratings and if movie rating is same, it will sort. 
 public class MovieRatingCompare implements Comparator<Mreview> {
 
 	@Override
